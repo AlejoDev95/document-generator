@@ -1,0 +1,82 @@
+-- Query para crear la tabla preguntas y crear todas las preguntas del examen
+
+-- Sentencia para crear la tabla de preguntas
+CREATE TABLE preguntas (
+    id SERIAL PRIMARY KEY,
+    parte SMALLINT NOT NULL,         -- Parte del examen a la que pertenece (1, 2, 3, etc.)
+    numero SMALLINT NOT NULL,        -- Número de pregunta (1, 2, 3, etc.)
+    enunciado VARCHAR(255) NOT NULL, -- Texto de la pregunta
+    audio_url VARCHAR(255),          -- URL del audio asociado a la pregunta
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Sentencia para crear las opciones de cada pregunta por sección
+INSERT INTO
+    preguntas (parte, numero, enunciado, audio_url)
+VALUES
+    (1, 1, 'parte-1-pregunta-1-opcion-1', 'parte-1-audio-1-opcion-1'),
+    (1, 1, 'parte-1-pregunta-1-opcion-2', 'parte-1-audio-1-opcion-2'),
+    (1, 1, 'parte-1-pregunta-1-opcion-3', 'parte-1-audio-1-opcion-3'),
+    (1, 1, 'parte-1-pregunta-1-opcion-4', 'parte-1-audio-1-opcion-4'),
+    (1, 1, 'parte-1-pregunta-1-opcion-5', 'parte-1-audio-1-opcion-5'),
+    (1, 2, 'parte-1-pregunta-2-opcion-1', 'parte-1-audio-2-opcion-1'),
+    (1, 2, 'parte-1-pregunta-2-opcion-2', 'parte-1-audio-2-opcion-2'),
+    (1, 2, 'parte-1-pregunta-2-opcion-3', 'parte-1-audio-2-opcion-3'),
+    (1, 2, 'parte-1-pregunta-2-opcion-4', 'parte-1-audio-2-opcion-4'),
+    (1, 2, 'parte-1-pregunta-2-opcion-5', 'parte-1-audio-2-opcion-5'),
+    (1, 3, 'parte-1-pregunta-3-opcion-1', 'parte-1-audio-3-opcion-1'),
+    (1, 3, 'parte-1-pregunta-3-opcion-2', 'parte-1-audio-3-opcion-2'),
+    (1, 3, 'parte-1-pregunta-3-opcion-3', 'parte-1-audio-3-opcion-3'),
+    (1, 3, 'parte-1-pregunta-3-opcion-4', 'parte-1-audio-3-opcion-4'),
+    (1, 3, 'parte-1-pregunta-3-opcion-5', 'parte-1-audio-3-opcion-5'),
+    (1, 4, 'parte-1-pregunta-4-opcion-1', 'parte-1-audio-4-opcion-1'),
+    (1, 4, 'parte-1-pregunta-4-opcion-2', 'parte-1-audio-4-opcion-2'),
+    (1, 4, 'parte-1-pregunta-4-opcion-3', 'parte-1-audio-4-opcion-3'),
+    (1, 4, 'parte-1-pregunta-4-opcion-4', 'parte-1-audio-4-opcion-4'),
+    (1, 4, 'parte-1-pregunta-4-opcion-5', 'parte-1-audio-4-opcion-5'),
+    (1, 5, 'parte-1-pregunta-5-opcion-1', 'parte-1-audio-5-opcion-1'),
+    (1, 5, 'parte-1-pregunta-5-opcion-2', 'parte-1-audio-5-opcion-2'),
+    (1, 5, 'parte-1-pregunta-5-opcion-3', 'parte-1-audio-5-opcion-3'),
+    (1, 5, 'parte-1-pregunta-5-opcion-4', 'parte-1-audio-5-opcion-4'),
+    (1, 5, 'parte-1-pregunta-5-opcion-5', 'parte-1-audio-5-opcion-5'),
+    (2, 1, 'parte-2-pregunta-1-opcion-1', 'parte-2-audio-1-opcion-1'),
+    (2, 1, 'parte-2-pregunta-1-opcion-2', 'parte-2-audio-1-opcion-2'),
+    (2, 1, 'parte-2-pregunta-1-opcion-3', 'parte-2-audio-1-opcion-3'),
+    (2, 1, 'parte-2-pregunta-1-opcion-4', 'parte-2-audio-1-opcion-4'),
+    (2, 1, 'parte-2-pregunta-1-opcion-5', 'parte-2-audio-1-opcion-5'),
+    (2, 2, 'parte-2-pregunta-2-opcion-1', 'parte-2-audio-2-opcion-1'),
+    (2, 2, 'parte-2-pregunta-2-opcion-2', 'parte-2-audio-2-opcion-2'),
+    (2, 2, 'parte-2-pregunta-2-opcion-3', 'parte-2-audio-2-opcion-3'),
+    (2, 2, 'parte-2-pregunta-2-opcion-4', 'parte-2-audio-2-opcion-4'),
+    (2, 2, 'parte-2-pregunta-2-opcion-5', 'parte-2-audio-2-opcion-5'),
+    (2, 3, 'parte-2-pregunta-3-opcion-1', 'parte-2-audio-3-opcion-1'),
+    (2, 3, 'parte-2-pregunta-3-opcion-2', 'parte-2-audio-3-opcion-2'),
+    (2, 3, 'parte-2-pregunta-3-opcion-3', 'parte-2-audio-3-opcion-3'),
+    (2, 3, 'parte-2-pregunta-3-opcion-4', 'parte-2-audio-3-opcion-4'),
+    (2, 3, 'parte-2-pregunta-3-opcion-5', 'parte-2-audio-3-opcion-5'),
+    (2, 4, 'parte-2-pregunta-4-opcion-1', 'parte-2-audio-4-opcion-1'),
+    (2, 4, 'parte-2-pregunta-4-opcion-2', 'parte-2-audio-4-opcion-2'),
+    (2, 4, 'parte-2-pregunta-4-opcion-3', 'parte-2-audio-4-opcion-3'),
+    (2, 4, 'parte-2-pregunta-4-opcion-4', 'parte-2-audio-4-opcion-4'),
+    (2, 4, 'parte-2-pregunta-4-opcion-5', 'parte-2-audio-4-opcion-5'),
+    (2, 5, 'parte-2-pregunta-5-opcion-1', 'parte-2-audio-5-opcion-1'),
+    (2, 5, 'parte-2-pregunta-5-opcion-2', 'parte-2-audio-5-opcion-2'),
+    (2, 5, 'parte-2-pregunta-5-opcion-3', 'parte-2-audio-5-opcion-3'),
+    (2, 5, 'parte-2-pregunta-5-opcion-4', 'parte-2-audio-5-opcion-4'),
+    (2, 5, 'parte-2-pregunta-5-opcion-5', 'parte-2-audio-5-opcion-5'),
+    (3, 1, 'parte-3-pregunta-1-opcion-1', 'parte-3-audio-1-opcion-1'),
+    (3, 1, 'parte-3-pregunta-1-opcion-2', 'parte-3-audio-1-opcion-2'),
+    (3, 1, 'parte-3-pregunta-1-opcion-3', 'parte-3-audio-1-opcion-3'),
+    (3, 1, 'parte-3-pregunta-1-opcion-4', 'parte-3-audio-1-opcion-4'),
+    (3, 1, 'parte-3-pregunta-1-opcion-5', 'parte-3-audio-1-opcion-5'),
+    (3, 2, 'parte-3-pregunta-2-opcion-1', 'parte-3-audio-2-opcion-1'),
+    (3, 2, 'parte-3-pregunta-2-opcion-2', 'parte-3-audio-2-opcion-2'),
+    (3, 2, 'parte-3-pregunta-2-opcion-3', 'parte-3-audio-2-opcion-3'),
+    (3, 2, 'parte-3-pregunta-2-opcion-4', 'parte-3-audio-2-opcion-4'),
+    (3, 2, 'parte-3-pregunta-2-opcion-5', 'parte-3-audio-2-opcion-5'),
+    (3, 3, 'parte-3-pregunta-3-opcion-1', 'parte-3-audio-3-opcion-1'),
+    (3, 3, 'parte-3-pregunta-3-opcion-2', 'parte-3-audio-3-opcion-2'),
+    (3, 3, 'parte-3-pregunta-3-opcion-3', 'parte-3-audio-3-opcion-3'),
+    (3, 3, 'parte-3-pregunta-3-opcion-4', 'parte-3-audio-3-opcion-4'),
+    (3, 3, 'parte-3-pregunta-3-opcion-5', 'parte-3-audio-3-opcion-5'),
