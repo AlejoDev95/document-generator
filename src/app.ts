@@ -1,11 +1,14 @@
-import PizZip from 'pizzip';
-import Docxtemplater from 'docxtemplater';
-import * as fs from 'fs';
-import * as path from 'path';
-const ImageModule = require('docxtemplater-image-module-free') as any;
+import * as fs from "fs";
+import * as path from "path";
+import PizZip from "pizzip";
+import Docxtemplater from "docxtemplater";
+const ImageModule = require("docxtemplater-image-module-free");
 
 // Cargar el archivo docx como un binario
-const content = fs.readFileSync(path.resolve(__dirname, 'template.docx'), 'binary');
+const content = fs.readFileSync(
+  path.resolve(__dirname, "template.docx"),
+  "binary"
+);
 
 // Cargar el contenido de la plantilla con Pizzip
 const zip = new PizZip(content);
@@ -30,30 +33,30 @@ const data = {
     {
       id: 1,
       question: "What did the boy forget to bring to the pool?",
-      optionA: path.resolve(__dirname, 'option_a.png'),
-      optionB: path.resolve(__dirname, 'option_b.png'),
-      optionC: path.resolve(__dirname, 'option_c.png'),
+      optionA: path.resolve(__dirname, "option_a.png"),
+      optionB: path.resolve(__dirname, "option_b.png"),
+      optionC: path.resolve(__dirname, "option_c.png"),
     },
     {
       id: 2,
       question: "What did the boy forget to bring to the pool?",
-      optionA: path.resolve(__dirname, 'option_b.png'),
-      optionB: path.resolve(__dirname, 'option_c.png'),
-      optionC: path.resolve(__dirname, 'option_a.png'),
+      optionA: path.resolve(__dirname, "option_b.png"),
+      optionB: path.resolve(__dirname, "option_c.png"),
+      optionC: path.resolve(__dirname, "option_a.png"),
     },
     {
       id: 3,
       question: "What did the boy forget to bring to the pool?",
-      optionA: path.resolve(__dirname, 'option_a.png'),
-      optionB: path.resolve(__dirname, 'option_b.png'),
-      optionC: path.resolve(__dirname, 'option_c.png'),
+      optionA: path.resolve(__dirname, "option_a.png"),
+      optionB: path.resolve(__dirname, "option_b.png"),
+      optionC: path.resolve(__dirname, "option_c.png"),
     },
     {
       id: 4,
       question: "What did the boy forget to bring to the pool?",
-      optionA: path.resolve(__dirname, 'option_b.png'),
-      optionB: path.resolve(__dirname, 'option_c.png'),
-      optionC: path.resolve(__dirname, 'option_a.png'),
+      optionA: path.resolve(__dirname, "option_b.png"),
+      optionB: path.resolve(__dirname, "option_c.png"),
+      optionC: path.resolve(__dirname, "option_a.png"),
     },
   ],
 };
@@ -66,12 +69,12 @@ try {
   doc.render();
 
   // Generar el archivo .docx
-  const buf = doc.getZip().generate({ type: 'nodebuffer' });
+  const buf = doc.getZip().generate({ type: "nodebuffer" });
 
   // Guardar el documento generado
-  fs.writeFileSync(path.resolve(__dirname, 'output.docx'), buf);
+  fs.writeFileSync(path.resolve(__dirname, "output.docx"), buf);
 
-  console.log('Documento generado exitosamente');
+  console.log("Documento generado exitosamente");
 } catch (error) {
-  console.error('Error generando el documento:', error);
+  console.error("Error generando el documento:", error);
 }
